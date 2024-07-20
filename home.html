@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Menu</title>
+</head>
+<body>
+<a href="/test">Test Page</a>
+<a sec:authorize="!isAuthenticated()" href="/login">Login</a>
+<a sec:authorize="isAuthenticated()" href="/logout">LogOut</a>
+<p sec:authorize="hasRole('ADMIN')">[이 부분은 운영자에게만 나타남]</p>
+<p sec:authorize="hasRole('GUEST')">[이 부분은 손님에게만 나타남]</p>
+<p sec:authorize="isAuthenticated()">[이 부분은 로그인한 사용자 모두에게 나타남]</p>
+</body>
+</html>

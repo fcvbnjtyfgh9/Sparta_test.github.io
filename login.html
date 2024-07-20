@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<form th:action="@{/login}" method="post">
+    <div>
+        <a href="/">Main</a>
+        <a href="/report">ReportSystem</a>
+        <a href="/board">게시판</a>
+        <a href="/sign_up">SignUp</a>
+
+        <form name="f" th:action="@{/login}" method="post">
+            <fieldset>
+                <legend>Please LogIn</legend>
+                <div th:if="${param.error}" class="alert alert-error">
+                    <strong>Username should be end with '@naver.com'. Check your Username and Password.</strong>
+                </div>
+                <div th:if="${param.logout}" class="alert alert-error">
+                    You have been logged out.
+                </div>
+                <label for="username">UserName</label>
+                <div>
+                    <input type="text" id="username" name="username" /><br/>
+                </div>
+                <label for="password">Password </label>
+                <div>
+                    <input type="password" id="password" name="password" />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">LogIn</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</form>
+</body>
+</html>
